@@ -63,6 +63,20 @@ header,
   transition: background-size .2s;
 }
 
+.main--functionality--walkthrough {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.walkthrough-card {
+  margin: 1rem auto;
+
+}
+
+/* .walkthrough--title {
+  margin-top: 2rem;
+} */
+
 .footer--copyright {
   margin-top: 3rem;
   padding: 2rem;

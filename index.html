@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sabrina Lowney - Capstone</title>
+
+  <!-- fonts -->
+  <!-- display font -->
+  <link href="https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap" rel="stylesheet">
+  <!-- text font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i&display=swap" rel="stylesheet">
+
+  <!-- css stylesheets -->
+  <link rel="stylesheet" href="assets/stylesheets/normalize.css">
+  <!-- <link rel="stylesheet" href="assets/stylesheets/style.css"> -->
+</head>
+<body>
+
+  <header>
+    <h1>
+      LibAwesome
+    </h1>
+    <subtitle>
+      <a href="https://gist.github.com/Galaxylaughing/52fbe0aea39b01cd202cfce2dd982ae5">
+        See Project On Github
+      </a>
+    </subtitle>
+  </header>
+
+  <main>
+    <!-- intro, h2 -->
+    <article>
+      <section>
+        <p> 
+          My name's Sabrina Lowney and I'm a Cohort 12 student at Ada Developer's Academy in Seattle, WA. 
+          LibAwesome is an iOS app I created in three weeks for my capstone project.
+        </p>
+      </section>
+    </article>
+
+    <!-- functionality, h2 -->
+    <article>
+      <h2>
+        The Wrapping: What Does the App Do?
+      </h2>
+
+      <!-- overview, h3 -->
+      <section>
+        <p>
+          LibAwesome is a book-tracker app geared towards book-lovers 
+          who want to see what they want to read and what they've read over time 
+          in an uncluttered phone app -- especially book-lovers like me, 
+          who don't have a lot of time to read and end up with long, 
+          unorganized lists of books they want to read.
+        </p>
+      </section>
+
+      <!-- main features, h3 -->
+      <section>
+        <p>
+          LibAwesome is geared around three main functions: 
+          adding books, organizing books, and viewing books.
+        </p>
+
+        <!-- adding books, h4 -->
+        <section>
+          <h4>
+            Adding Books
+          </h4>
+
+          <p>
+            LibAwesome provides two main ways of adding books to the app.
+
+            <section>
+              <h5>
+                Accessing the Google Books API
+              </h5>
+
+              <p>LibAwesome has three capabilities that access the Google Books API 
+                to generate a book's data automatically.</p>
+
+              <ul>
+                <li>
+                  <h6>Scan a Barcode</h6>
+                  <p>
+                    Most books published after 2007 have their ISBN-13 identifier 
+                    encoded in their barcode. If the user grants the app access to the camera,
+                    LibAwesome can scan the ISBN from the barcode, query the Google Books API,
+                    and create a new book in the user's library automatically.
+                  </p>
+                  <p>
+                    This process may fail for books that were published before 2007,
+                    and since the Google Books database is incomplete and may only have certain versions
+                    of a book on record, the app may pop up an alert saying it couldn't find a book
+                    with that ISBN.
+                  </p>
+                  <p>
+                    In this case, users have various other options for adding a book.
+                  </p>
+                </li>
+
+                <li>
+                  <h6>Search by ISBN</h6>
+                  <p>
+                    Users can search for a book by typing its ISBN-10 or ISBN-13 into a form. 
+                    LibAwesome will query the Google Books API and, if any books match, 
+                    it will automatically add the book to the user's library 
+                    and take them to its detail page.
+                  </p>
+                  <p>
+                    This can work even when scanning does not in cases where 
+                    the ISBN printed on a book is an ISBN-10, 
+                    which would not be encoded on the barcode.
+                  </p>
+                </li>
+
+                <li>
+                  <h6>Search by Title/Author</h6>
+                  <p>
+                    If the ISBN cannot be found or if the user does not have it on hand,
+                    they can also simply search by entering a book's title and/oror 
+                    any number of author names.
+                  </p>
+                  <p>
+                    LibAwesome will query the Google Books API 
+                    and display a list of up to 20 resulting books. 
+                    The user can then view details of these books 
+                    and choose one to add to their library.
+                  </p>
+                </li>
+              </ul>
+
+              <section>
+                <h5>
+                  Manually Entering Data
+                </h5>
+
+                <p>
+                  Users can also manually enter a book's data to create a book,
+                  if, for instance, they have a particularly rare book.
+                </p>
+              </section>
+
+            </section>
+
+          </p>
+        </section>
+
+        <!-- organizing books, h4 -->
+        <section>
+          <h4>
+            Organizing Books
+          </h4>
+
+          <p>
+            LibAwesome allows books to be organized along two main axes: status and tag. 
+          </p>
+
+          <section>
+            <h5>
+              Status
+            </h5>
+            <p>
+              All books can have one of the following statuses:
+
+              <ul>
+                <li>
+                  Want to Read
+                </li>
+                <li>
+                  Currently Reading
+                </li>
+                <li>
+                  Completed
+                </li>
+                <li>
+                  Paused
+                </li>
+                <li>
+                  Discarded
+                </li>
+              </ul>
+            </p>
+            <p>
+              All books entered into the library are automatically given 
+              a starting status of 'Want to Read', set to the current date.
+            </p>
+            <p>
+              The idea is, users will spot a book that looks interesting and add it to their library. 
+              Later, they may start reading it and change the status to match. 
+            </p>
+            <p>
+              The statuses have dates and users can view the status history 
+              of their book to see when they first added it and what's happened since. 
+              The status history is essentially a history of a user's interaction with a given book.
+            </p>
+            <p>
+              Dates also allow users to sort their library by date 
+              to get an idea of what they've read or added over time, 
+              and to pick the least or most recently added book to read next.
+            </p>
+          </section>
+
+          <section>
+            <h5>
+              Tags
+            </h5>
+
+            <p>
+              Users can give books tags. 
+              These tags can be nested simply by separating the nested elements with a slash, "/".
+            </p>
+
+            <p>
+              Tags can be used as genres, 
+              to allow users who feel like reading a particular genre next 
+              a way to easily find books that fit that criteria,
+              or in any way the user wants. They provide user's a customizable way 
+              of organizing their library.
+            </p>
+          </section>
+        </section>
+
+        <!-- viewing books, h4 -->
+        <section>
+          <h4>
+            Viewing Books
+          </h4>
+
+          <p>
+            LibAwesome allows books to be viewed by tag, by author, by series, 
+            or in a main book list which can be filtered by status or rating 
+            and sorted by title or status date.
+          </p>
+        </section>
+      </section>
+    </article>
+
+    <!-- walkthrough, h2 -->
+    <article>
+      <h2>The Filling: What Does The App Look Like?</h2>
+
+      <section>
+        <h3>Signing Up and Logging In</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--login-flow.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <h3>Adding A Book</h3>
+
+        <!-- scan a barcode -->
+        <section>
+          <h4>Scanning A Barcode</h4>
+
+          <video height="500" controls>
+            <source src="./assets/videos/LibAwesome--add-book--scan-barcode.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+
+        <!-- enter the isbn of an older book -->
+        <section>
+          <h4>Entering an ISBN</h4>
+
+          <video height="500" controls>
+            <source src="./assets/videos/LibAwesome--add-book--enter-isbn.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+
+        <!-- search for a book and choose a result -->
+        <section>
+          <h4>Using the Search Function</h4>
+
+          <video height="500" controls>
+            <source src="./assets/videos/LibAwesome--add-book--search.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+      </section>
+
+      <section>
+        <!-- edit a book -->
+        <h3>Update a Book</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--update-book.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- series -->
+        <h3>Working With Series</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--series.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- tags -->
+        <h3>Sorting By Tag</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--tags.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- authors -->
+        <h3>Sorting by Author</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--authors.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- status -->
+        <h3>Changing A Book's Status</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--status.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- rating -->
+        <h3>Changing A Book's Rating</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--ratings.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section>
+        <!-- rating -->
+        <h3>The Current Reads List</h3>
+
+        <video height="500" controls>
+          <source src="./assets/videos/LibAwesome--current-reads.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+    </article>
+
+    <!-- guts, h2 -->
+    <article>
+      <h2>The Filling Under a Microscope: How Does The App Work?</h2>
+
+      <p>
+        Okay, so, we can all conclude: the app is pretty great. 
+        But what makes the great? How does it work under the hood?
+      </p>
+
+      <section>
+        <h3>The Frontend -- iOS</h3>
+
+        <p>
+          The LibAwesome app is a native iOS app: 
+          I wrote it in Swift using XCode as my development environment. 
+        </p>
+        <p>
+          Apple provides two methods of writing apps in Swift: 
+          UIKit (with storyboards) and SwiftUI (declarative, more like React).
+          SwiftUI sounded intruiging, and also like the direction Apple intends 
+          to push developers toward in the future, so I used SwiftUI.
+        </p>
+        <p>
+          SwiftUI came with its pros and cons. 
+          The biggest pro: it is pretty darn cool. 
+          The biggest con: it's not yet quite as fully-fledged 
+          in terms of functionality as UIKit.
+        </p>
+
+        <p>
+          The frontend of my app is not deployed on the App Store,
+          but it is a breeze to install if you want to test it out for yourself. 
+          The repository and instructions for installing the app can be found 
+          <a href="https://github.com/Galaxylaughing/capstone-ios/">here</a>.
+        </p>
+      </section>
+
+      <section>
+        <h3>The Backend -- API</h3>
+
+        <p>
+          The LibAwesome iOS app is really only half of the capstone project,
+          the other half being the REST API the iOS app communicats with 
+          in order to interact with the database.
+        </p>
+        <p>
+          This API is written with Django and Python using the Django REST Framework.
+          It uses token authentication, so when users sign up, 
+          a token is created and associated with their account 
+          and Django saves a hashed version of their password. 
+        </p>
+        <p>
+          When a user logs in, Django hashes the password and compares it 
+          and the username against the users in the database. If it finds a match, 
+          it sends back the token.
+        </p>
+        <p>
+          My Swift app caches this token and then uses it
+          to make HTTP requests for operations such as getting a list of the books 
+          that are associated with the user or updating the information for a particular book.
+        </p>
+
+        <p>
+          The API is deployed to Heroku and the helloworld endpoint -- the only endpoint 
+          besides signing up that doesn't require authentication -- 
+          can be found <a href="https://booktrackerapi.herokuapp.com/helloworld/">here</a>. 
+          The API is also on <a href="https://github.com/Galaxylaughing/capstone-api">github</a>.
+        </p>
+      </section>
+    </article>
+
+    <!-- leftovers, h2 -->
+    <!-- <article>
+      <h2>The Leftovers: What I Didn't Have Time For</h2>
+    </article> -->
+  </main>
+
+  <!-- future enhancements -->
+    <!-- have tags as a filter for the booklist 
+      or otherwise have a filter for the taglist much like the booklist, 
+      so you can see only books tagged with X that are want-to-read, for instance  -->
+  
+</body>
+</html>

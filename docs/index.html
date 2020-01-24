@@ -10,239 +10,235 @@
   <!-- display font -->
   <link href="https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap" rel="stylesheet">
   <!-- text font -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
 
   <!-- css stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/stylesheets/normalize.css">
-  <!-- <link rel="stylesheet" href="assets/stylesheets/style.css"> -->
+  <link rel="stylesheet" href="assets/stylesheets/style.css">
 </head>
 <body>
 
-  <header>
-    <h1>
+  <header class="wholepage">
+    <h1 class="header--title">
       LibAwesome
     </h1>
-    <subtitle>
-      <a href="https://gist.github.com/Galaxylaughing/52fbe0aea39b01cd202cfce2dd982ae5">
-        See Project On Github
-      </a>
-    </subtitle>
   </header>
 
-  <main>
+  <main class="wholepage">
     <!-- intro, h2 -->
-    <article>
+    <article class="main--introduction">
       <section>
         <p> 
           My name's Sabrina Lowney and I'm a Cohort 12 student at Ada Developer's Academy in Seattle, WA. 
           LibAwesome is an iOS app I created in three weeks for my capstone project.
         </p>
+        <p>
+          This project can also be found on 
+          <a href="https://gist.github.com/Galaxylaughing/52fbe0aea39b01cd202cfce2dd982ae5">github</a>.
+        </p>
       </section>
     </article>
 
     <!-- functionality, h2 -->
-    <article>
-      <h2>
+    <article class="main--article main--features">
+      <h2 class="main--article-title">
         The Wrapping: What Does the App Do?
       </h2>
 
-      <!-- overview, h3 -->
+      <p>
+        LibAwesome is a book-tracker app geared towards book-lovers 
+        who want to see what they want to read and what they've read over time 
+        in an uncluttered phone app -- especially book-lovers like me, 
+        who don't have a lot of time to read and end up with long, 
+        unorganized lists of books they want to read.
+      </p>
+
+      <p>
+        LibAwesome is geared around three main functions: 
+        adding books, organizing books, and viewing books.
+      </p>
+
+      <!-- adding books, h4 -->
       <section>
+        <h3>
+          Adding Books
+        </h3>
+
         <p>
-          LibAwesome is a book-tracker app geared towards book-lovers 
-          who want to see what they want to read and what they've read over time 
-          in an uncluttered phone app -- especially book-lovers like me, 
-          who don't have a lot of time to read and end up with long, 
-          unorganized lists of books they want to read.
+          LibAwesome provides two main ways of adding books to the app.
+
+          <section>
+            <h4>
+              Accessing the Google Books API
+            </h4>
+
+            <p>LibAwesome has three capabilities that access the Google Books API 
+              to generate a book's data automatically.</p>
+
+            <ul>
+              <li>
+                <h5>Scan a Barcode</h5>
+                <p>
+                  Most books published after 2007 have their ISBN-13 identifier 
+                  encoded in their barcode. If the user grants the app access to the camera,
+                  LibAwesome can scan the ISBN from the barcode, query the Google Books API,
+                  and create a new book in the user's library automatically.
+                </p>
+                <p>
+                  This process may fail for books that were published before 2007,
+                  and since the Google Books database is incomplete and may only have certain versions
+                  of a book on record, the app may pop up an alert saying it couldn't find a book
+                  with that ISBN.
+                </p>
+                <p>
+                  In this case, users have various other options for adding a book.
+                </p>
+              </li>
+
+              <li>
+                <h5>Search by ISBN</h5>
+                <p>
+                  Users can search for a book by typing its ISBN-10 or ISBN-13 into a form. 
+                  LibAwesome will query the Google Books API and, if any books match, 
+                  it will automatically add the book to the user's library 
+                  and take them to its detail page.
+                </p>
+                <p>
+                  This can work even when scanning does not in cases where 
+                  the ISBN printed on a book is an ISBN-10, 
+                  which would not be encoded on the barcode.
+                </p>
+              </li>
+
+              <li>
+                <h5>Search by Title/Author</h5>
+                <p>
+                  If the ISBN cannot be found or if the user does not have it on hand,
+                  they can also simply search by entering a book's title and/oror 
+                  any number of author names.
+                </p>
+                <p>
+                  LibAwesome will query the Google Books API 
+                  and display a list of up to 20 resulting books. 
+                  The user can then view details of these books 
+                  and choose one to add to their library.
+                </p>
+              </li>
+            </ul>
+
+            <section>
+              <h4>
+                Manually Entering Data
+              </h4>
+
+              <p>
+                Users can also manually enter a book's data to create a book,
+                if, for instance, they have a particularly rare book.
+              </p>
+            </section>
+
+          </section>
+
         </p>
       </section>
 
-      <!-- main features, h3 -->
+      <!-- organizing books, h4 -->
       <section>
+        <h3>
+          Organizing Books
+        </h3>
+
         <p>
-          LibAwesome is geared around three main functions: 
-          adding books, organizing books, and viewing books.
+          LibAwesome allows books to be organized along two main axes: status and tag. 
         </p>
 
-        <!-- adding books, h4 -->
         <section>
           <h4>
-            Adding Books
+            Status
           </h4>
-
           <p>
-            LibAwesome provides two main ways of adding books to the app.
+            All books can have one of the following statuses:
 
-            <section>
-              <h5>
-                Accessing the Google Books API
-              </h5>
-
-              <p>LibAwesome has three capabilities that access the Google Books API 
-                to generate a book's data automatically.</p>
-
-              <ul>
-                <li>
-                  <h6>Scan a Barcode</h6>
-                  <p>
-                    Most books published after 2007 have their ISBN-13 identifier 
-                    encoded in their barcode. If the user grants the app access to the camera,
-                    LibAwesome can scan the ISBN from the barcode, query the Google Books API,
-                    and create a new book in the user's library automatically.
-                  </p>
-                  <p>
-                    This process may fail for books that were published before 2007,
-                    and since the Google Books database is incomplete and may only have certain versions
-                    of a book on record, the app may pop up an alert saying it couldn't find a book
-                    with that ISBN.
-                  </p>
-                  <p>
-                    In this case, users have various other options for adding a book.
-                  </p>
-                </li>
-
-                <li>
-                  <h6>Search by ISBN</h6>
-                  <p>
-                    Users can search for a book by typing its ISBN-10 or ISBN-13 into a form. 
-                    LibAwesome will query the Google Books API and, if any books match, 
-                    it will automatically add the book to the user's library 
-                    and take them to its detail page.
-                  </p>
-                  <p>
-                    This can work even when scanning does not in cases where 
-                    the ISBN printed on a book is an ISBN-10, 
-                    which would not be encoded on the barcode.
-                  </p>
-                </li>
-
-                <li>
-                  <h6>Search by Title/Author</h6>
-                  <p>
-                    If the ISBN cannot be found or if the user does not have it on hand,
-                    they can also simply search by entering a book's title and/oror 
-                    any number of author names.
-                  </p>
-                  <p>
-                    LibAwesome will query the Google Books API 
-                    and display a list of up to 20 resulting books. 
-                    The user can then view details of these books 
-                    and choose one to add to their library.
-                  </p>
-                </li>
-              </ul>
-
-              <section>
-                <h5>
-                  Manually Entering Data
-                </h5>
-
-                <p>
-                  Users can also manually enter a book's data to create a book,
-                  if, for instance, they have a particularly rare book.
-                </p>
-              </section>
-
-            </section>
-
+            <ul>
+              <li>
+                Want to Read
+              </li>
+              <li>
+                Currently Reading
+              </li>
+              <li>
+                Completed
+              </li>
+              <li>
+                Paused
+              </li>
+              <li>
+                Discarded
+              </li>
+            </ul>
+          </p>
+          <p>
+            All books entered into the library are automatically given 
+            a starting status of 'Want to Read', set to the current date.
+          </p>
+          <p>
+            The idea is, users will spot a book that looks interesting and add it to their library. 
+            Later, they may start reading it and change the status to match. 
+          </p>
+          <p>
+            The statuses have dates and users can view the status history 
+            of their book to see when they first added it and what's happened since. 
+            The status history is essentially a history of a user's interaction with a given book.
+          </p>
+          <p>
+            Dates also allow users to sort their library by date 
+            to get an idea of what they've read or added over time, 
+            and to pick the least or most recently added book to read next.
           </p>
         </section>
 
-        <!-- organizing books, h4 -->
         <section>
           <h4>
-            Organizing Books
+            Tags
           </h4>
 
           <p>
-            LibAwesome allows books to be organized along two main axes: status and tag. 
+            Users can give books tags. 
+            These tags can be nested simply by separating the nested elements with a slash, "/".
           </p>
-
-          <section>
-            <h5>
-              Status
-            </h5>
-            <p>
-              All books can have one of the following statuses:
-
-              <ul>
-                <li>
-                  Want to Read
-                </li>
-                <li>
-                  Currently Reading
-                </li>
-                <li>
-                  Completed
-                </li>
-                <li>
-                  Paused
-                </li>
-                <li>
-                  Discarded
-                </li>
-              </ul>
-            </p>
-            <p>
-              All books entered into the library are automatically given 
-              a starting status of 'Want to Read', set to the current date.
-            </p>
-            <p>
-              The idea is, users will spot a book that looks interesting and add it to their library. 
-              Later, they may start reading it and change the status to match. 
-            </p>
-            <p>
-              The statuses have dates and users can view the status history 
-              of their book to see when they first added it and what's happened since. 
-              The status history is essentially a history of a user's interaction with a given book.
-            </p>
-            <p>
-              Dates also allow users to sort their library by date 
-              to get an idea of what they've read or added over time, 
-              and to pick the least or most recently added book to read next.
-            </p>
-          </section>
-
-          <section>
-            <h5>
-              Tags
-            </h5>
-
-            <p>
-              Users can give books tags. 
-              These tags can be nested simply by separating the nested elements with a slash, "/".
-            </p>
-
-            <p>
-              Tags can be used as genres, 
-              to allow users who feel like reading a particular genre next 
-              a way to easily find books that fit that criteria,
-              or in any way the user wants. They provide user's a customizable way 
-              of organizing their library.
-            </p>
-          </section>
-        </section>
-
-        <!-- viewing books, h4 -->
-        <section>
-          <h4>
-            Viewing Books
-          </h4>
 
           <p>
-            LibAwesome allows books to be viewed by tag, by author, by series, 
-            or in a main book list which can be filtered by status or rating 
-            and sorted by title or status date.
+            Tags can be used as genres, 
+            to allow users who feel like reading a particular genre next 
+            a way to easily find books that fit that criteria,
+            or in any way the user wants. They provide user's a customizable way 
+            of organizing their library.
           </p>
         </section>
+      </section>
+
+      <!-- viewing books, h4 -->
+      <section>
+        <h3>
+          Viewing Books
+        </h3>
+
+        <p>
+          LibAwesome allows books to be viewed by tag, by author, by series, 
+          or in a main book list which can be filtered by status or rating 
+          and sorted by title or status date.
+        </p>
       </section>
     </article>
 
     <!-- walkthrough, h2 -->
-    <article>
-      <h2>The Filling: What Does The App Look Like?</h2>
+    <article class="main--article main--functionality">
+      <h2 class="main--article-title">
+        The Filling: What Does The App Look Like?
+      </h2>
 
-      <section>
+      <section class="main--functionality--walkthrough">
         <h3>Signing Up and Logging In</h3>
 
         <video height="500" controls>
@@ -251,7 +247,7 @@
         </video>
       </section>
 
-      <section>
+      <section class="main--functionality--walkthrough">
         <h3>Adding A Book</h3>
 
         <!-- scan a barcode -->
@@ -265,7 +261,7 @@
         </section>
 
         <!-- enter the isbn of an older book -->
-        <section>
+        <section class="main--functionality--walkthrough">
           <h4>Entering an ISBN</h4>
 
           <video height="500" controls>
@@ -275,7 +271,7 @@
         </section>
 
         <!-- search for a book and choose a result -->
-        <section>
+        <section class="main--functionality--walkthrough">
           <h4>Using the Search Function</h4>
 
           <video height="500" controls>
@@ -285,8 +281,8 @@
         </section>
       </section>
 
-      <section>
-        <!-- edit a book -->
+      <!-- edit a book -->
+      <section class="main--functionality--walkthrough">
         <h3>Update a Book</h3>
 
         <video height="500" controls>
@@ -295,8 +291,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- series -->
+      <!-- series -->
+      <section class="main--functionality--walkthrough">
         <h3>Working With Series</h3>
 
         <video height="500" controls>
@@ -305,8 +301,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- tags -->
+      <!-- tags -->
+      <section class="main--functionality--walkthrough">
         <h3>Sorting By Tag</h3>
 
         <video height="500" controls>
@@ -315,8 +311,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- authors -->
+      <!-- authors -->
+      <section class="main--functionality--walkthrough">
         <h3>Sorting by Author</h3>
 
         <video height="500" controls>
@@ -325,8 +321,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- status -->
+      <!-- status -->
+      <section class="main--functionality--walkthrough">
         <h3>Changing A Book's Status</h3>
 
         <video height="500" controls>
@@ -335,8 +331,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- rating -->
+      <!-- rating -->
+      <section class="main--functionality--walkthrough">
         <h3>Changing A Book's Rating</h3>
 
         <video height="500" controls>
@@ -345,8 +341,8 @@
         </video>
       </section>
 
-      <section>
-        <!-- rating -->
+      <!-- rating -->
+      <section class="main--functionality--walkthrough">
         <h3>The Current Reads List</h3>
 
         <video height="500" controls>
@@ -357,13 +353,19 @@
     </article>
 
     <!-- guts, h2 -->
-    <article>
-      <h2>The Filling Under a Microscope: How Does The App Work?</h2>
+    <article class="main--article main--implementation">
+      <h2 class="main--article-title">
+        The Filling Under a Microscope: How Does The App Work?
+      </h2>
 
-      <p>
-        Okay, so, we can all conclude: the app is pretty great. 
-        But what makes the great? How does it work under the hood?
-      </p>
+      <div class="main--implementation--introduction">
+        <p>
+          Okay, so we can all conclude: the app is pretty great.
+        </p>
+        <p> 
+          But what makes it great? How does it work under the hood?
+        </p>
+      </div>
 
       <section>
         <h3>The Frontend -- iOS</h3>
@@ -428,5 +430,11 @@
     </article>
 
   </main>
+
+  <footer class="wholepage">
+    <p class="footer--copyright">
+      sabrina lowney © 2020
+    </p>
+  </footer>
 </body>
 </html>

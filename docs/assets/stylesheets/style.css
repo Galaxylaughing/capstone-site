@@ -1,27 +1,57 @@
 /* style.css */
 
-/* keyframes code */
-@keyframes drawUnderline {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+body {
+  font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* source: https://css-tricks.com/having-fun-with-link-hover-effects/ */
-a {
-  color: inherit;
-  text-decoration: none;
+.wholepage {
+  width: 45vw;
+  margin: auto;
 }
 
-footer a, main a {
+header > *:last-child {
+  margin-bottom: 2rem;
+}
+
+.header--title,
+.header--subtitle,
+.main--introduction,
+.main--article-title,
+.main--implementation--introduction,
+.main--functionality--walkthrough,
+.footer--copyright {
+  text-align: center;
+}
+
+header {
+  padding: 1rem;
+}
+
+header,
+.footer--copyright {
+  background-color: lightblue;
+}
+
+.main--introduction {
+  margin-top: 3rem;
+}
+
+.main--implementation--introduction {
+  margin-bottom: 2rem;
+}
+
+.main--article {
+  margin-top: 4rem;
+}
+
+.main--article-title {
+  margin-bottom: 2rem;
+
   /* create a transparent-to-blue background gradient */
   background:
     linear-gradient(
-      to bottom, #99FFFF 0%,
-      #99FFFF 100%
+      to bottom, lightblue 0%,
+      lightblue 100%
     );
   /* set background to go from the top left corner
   to the bottom right corner */
@@ -33,200 +63,7 @@ footer a, main a {
   transition: background-size .2s;
 }
 
-footer a:hover, main a:hover {
-  background-size: 1em 1.2em;
-}
-
-footer a:active, main a:active {
-  transform: translate(0.1em, 0.1em);
-  text-shadow: 5px 3px #84e3e3;
-}
-
-nav, footer {
-  height: 4rem;
-}
-
-body {
-  font-family: 'Source Code Pro', 'Helvetica Neue', sans-serif;
-}
-
-/* NAV */
-
-nav {
-  padding-top: 1rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  text-align: center;
-  font-family: 'Cutive Mono', 'Courier New', Courier, monospace;
-  font-size: 1.5rem;
-}
-
-nav a {
-  padding: 0 2rem 0 2rem;
-  margin: 0.5rem;
-  /* makes the line relative to the span, not the whole page */
-  position: relative;
-  text-decoration: none;
-}
-
-nav a:first-child {
-  margin-left: 2em;
-}
-
-nav a:nth-child(2) {
-  margin-left: auto;
-}
-
-nav a:active {
-  transform: translate(0.1em, 0.1em);
-  text-shadow: 5px 3px #84e3e3;
-}
-
-/* based on: https://tobiasahlin.com/blog/css-trick-animating-link-underlines/ */
-
-nav a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 0.5rem;
-  z-index: -1;
-  top: 40%;
-  left: 0;
-  background-color: #99FFFF;
-  visibility: hidden;
-}
-
-nav a:hover:before {
-  visibility: visible;
-  animation: 0.5s ease-in-out 0s 1 drawUnderline;
-}
-
-
-/* SPLASH */
-
-.splash {
-  width: 100%;
-  height: 75vh;
-  text-align: center;
-}
-
-.splash h1 {
-  width: 50vw;
-  padding: 1rem;
-  margin: auto;
-  margin-top: 30vh;
-  margin-bottom: 2rem;
-  border-bottom: 0.08rem solid black;
-
-  font-family: 'Cutive Mono', 'Courier New', Courier, monospace;
-  font-size: 4em;
-}
-
-.splash sub {
-  font-size: 1em;
-}
-
-
-/* FOOTER */
-
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-footer > * {
-  height: min-content;
-}
-
-footer {
-  font-size: 0.8em;
-  padding-left: 1.5rem;
-}
-
-.anchor {
-  margin-left: auto;
-  margin-right: 1em;
-  background: transparent;
-}
-
-.anchor img {
-  height: 3rem;
-  margin-bottom: 0.5em;
-}
-
-.anchor img:hover {
-  background-color: rgba(153, 255, 255, 0.9);
-  border-radius: 50%;
-}
-
-footer aside {
-  margin-left: 2rem;
-  text-align: left;
-}
-
-@media only screen and (max-width: 900px) {
-
-  .splash {
-    height: 76vh;
-  }
-
-  nav {
-    height: max-content;
-  }
-
-  nav a, nav a:first-child {
-    padding: 0 2rem 0 2rem;
-    margin: 0.5rem;
-    font-size: 1.2rem;
-  }
-
-  .splash h1 {
-    font-size: 3rem;
-    margin-top: 25vh;
-  }
-
-  footer {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-template-rows: 2fr 1fr;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.7rem;
-    padding-top: 0;
-    padding-bottom: 1rem;
-  }
-
-  footer aside {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    margin: 0;
-    margin-right: 1rem;
-  }
-
-  .anchor {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-  }
-
-  footer p {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    margin-left: -2rem;
-  }
-
+.footer--copyright {
+  margin-top: 3rem;
+  padding: 2rem;
 }

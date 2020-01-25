@@ -73,6 +73,13 @@ header,
 
 }
 
+.diagram {
+  height: 40rem;
+  width: 40rem;
+  object-fit: contain;
+  margin: auto;
+}
+
 .footer--copyright {
   margin-top: 3rem;
   padding: 2rem;

@@ -73,11 +73,8 @@ header,
 
 }
 
-/* .walkthrough--title {
-  margin-top: 2rem;
-} */
-
 .footer--copyright {
   margin-top: 3rem;
   padding: 2rem;
+  margin-bottom: 0;
 }
